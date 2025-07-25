@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jenil Bharadva</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      color: #00ff00;
+      background: black;
+      overflow-x: hidden;
+      transition: all 1s ease;
+    }
+
+    body.styled {
+      font-family: 'Segoe UI', sans-serif;
+      color: #cfcfcf;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+    }
+
+    .typing-screen, .transition-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      background: black;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      font-size: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      text-align: center;
+    }
+
+    .typing-screen::after {
+      content: '|';
+      animation: blink 0.7s infinite;
+      margin-left: 5px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .transition-screen {
+      flex-direction: column;
+      font-size: 1.2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.5s ease;
+    }
+
+    .jay-mataji-top {
+      font-size: 1rem;
+      color: #00ff88;
+      text-align: center;
+      margin-top: 15px;
+      letter-spacing: 2px;
+      display: none;
+    }
+
+    .main-content {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .profile-image {
+      margin-bottom: 20px;
+    }
+
+    .profile-image img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .name, .sub-bio, .extra-bio, .thought, .social, footer {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .name {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #ffaa33;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .sub-bio {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #aaa;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .extra-bio {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #ddd;
+      line-height: 1.6;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .thought {
+      margin-top: 15px;
+      font-style: italic;
+      font-size: 1rem;
+      color: white;
+      text-shadow: 0 0 8px #ffffff;
+      text-align: center;
+    }
+
+    .social {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .social a {
+      display: inline-block;
+      margin: 8px 0;
+      font-size: 1.1rem;
+      color: #00ffaa;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social a:hover {
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="typingScreen" class="typing-screen">|</div>
+  <div id="transitionScreen" class="transition-screen">
+    <div>Initializing profile visuals...</div>
+    <div style="margin-top:10px;">Loading biodata interface...</div>
+  </div>
+
+  <audio id="typeSound" src="https://assets.mixkit.co/sfx/preview/mixkit-typewriter-soft-key-1124.mp3"></audio>
+
+  <div class="jay-mataji-top">Jay Mataji</div>
+  <div class="main-content">
+    <div class="profile-image">
+      <img src="https://i.ibb.co/wjvxXyF/Whats-App-Image-2025-07-23-at-11-06-40-PM.jpg" alt="Jenil Bharadva">
+    </div>
+
+    <div class="name">Jenil Ashvinkumar<br><span style="display:block; text-align:center;">Bharadva</span></div>
+
+    <div class="sub-bio">An interview By Times Now India with Jenil Bharadva</div>
+
+    <div class="extra-bio">
+      Jenil Bharadva is the richest person in the world. He also has deep knowledge in hacking, he is clever in studies and he is an amazing painter. He has created many impressive canvas artworks and invented unique things like the smallest chargeable light. His talent and creativity inspire everyone.
+    </div>
+
+    <div class="thought">"I don't follow the crowd, I lead them."</div>
+
+    <div class="social">
+      <a href="https://instagram.com/jenil_bharadva.2311" target="_blank">📷 Follow on Instagram</a><br>
+      <a href="https://x.com/intent/follow?screen_name=jenil_bharadva" target="_blank">🐦 Follow on X (Twitter)</a><br>
+      <a href="https://github.com/jenilbharadva2311" target="_blank">💻 GitHub</a><br>
+    </div>
+
+    <footer>
+      &copy; 2025 Jenil Bharadva | Thank you for visiting.
+    </footer>
+  </div>
+
+  <script>
+    const typingText = "Accessing Jenil Bharadva's Secure Profile...";
+    const typingElement = document.getElementById("typingScreen");
+    const transitionScreen = document.getElementById("transitionScreen");
+    const typeSound = document.getElementById("typeSound");
+    const mainContent = document.querySelector(".main-content");
+    const jayTop = document.querySelector(".jay-mataji-top");
+    const bodyTag = document.body;
+
+    const lines = [
+      ".name",
+      ".sub-bio",
+      ".extra-bio",
+      ".thought",
+      ".social",
+      "footer"
+    ];
+
+    let charIndex = 0;
+
+    function typeWriter() {
+      if (charIndex <= typingText.length) {
+        typingElement.innerText = typingText.slice(0, charIndex);
+        if (typingText[charIndex] !== " ") {
+          typeSound.currentTime = 0;
+          typeSound.play();
+        }
+        charIndex++;
+        setTimeout(typeWriter, 100);
+      } else {
+        typingElement.style.display = "none";
+        transitionScreen.style.opacity = 1;
+        transitionScreen.style.pointerEvents = 'auto';
+        setTimeout(() => {
+          transitionScreen.style.display = "none";
+          mainContent.style.display = "flex";
+          jayTop.style.display = "block";
+
+          bodyTag.classList.remove("styled");
+
+          let delay = 0;
+          lines.forEach(selector => {
+            setTimeout(() => {
+              document.querySelector(selector).style.opacity = 1;
+            }, delay);
+            delay += 800;
+          });
+
+          setTimeout(() => {
+            bodyTag.classList.add("styled");
+          }, delay + 1000);
+        },1000 );
+      }
+    }
+
+    typingElement.innerText = "";
+    mainContent.style.display = "none";
+    jayTop.style.display = "none";
+    transitionScreen.style.display = "flex";
+    typeWriter();
+  </script>
+</body>
+</html>
